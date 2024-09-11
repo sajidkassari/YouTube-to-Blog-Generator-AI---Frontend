@@ -20,11 +20,11 @@ This is the frontend part of the YouTube to Blog Generator AI project. It is a s
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/sajidkassari/YouTube-to-Blog-Generator-AI---Frontend.git
+   git clone https://github.com/sajidkassari/YouTube-to-Blog-Generator-AI-Frontend.git
 2. **Install Dependencies**
 
     ```bash
-    cd YouTube-to-Blog-Generator-AI---Frontend
+    cd YouTube-to-Blog-Generator-AI-Frontend
     npm install
     
 3. **Run the Application**
