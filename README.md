@@ -24,7 +24,7 @@ This is the frontend part of the YouTube to Blog Generator AI project. It is a s
 2. **Install Dependencies**
 
     ```bash
-    cd frontend-repo
+    cd YouTube-to-Blog-Generator-AI---Frontend
     npm install
     
 3. **Run the Application**
