@@ -20,8 +20,7 @@ This is the frontend part of the YouTube to Blog Generator AI project. It is a s
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/frontend-repo.git
-
+   git clone https://github.com/sajidkassari/YouTube-to-Blog-Generator-AI---Frontend.git
 2. **Install Dependencies**
 
     ```bash
