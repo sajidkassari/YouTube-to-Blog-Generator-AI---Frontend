@@ -1,0 +1,107 @@
+/* General Styles */
+body {
+    background-color: #f0f2f5;
+    /* Light background for a clean look */
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Blog Content Styles */
+.blog-content {
+    margin: 40px auto;
+    /* Center content and add spacing */
+    padding: 20px;
+    background-color: #ffffff;
+    /* White background for better readability */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Enhanced shadow for depth */
+    max-width: 900px;
+    /* Restrict content width for better readability */
+    line-height: 1.6;
+    /* Improved readability */
+}
+
+.blog-content h1 {
+    font-size: 2.5em;
+    /* Larger font size for main headings */
+    margin-bottom: 0.5em;
+    color: #333;
+    /* Darker color for better contrast */
+}
+
+.blog-content h2 {
+    font-size: 1.75em;
+    /* Slightly smaller than h1 but prominent */
+    margin-bottom: 0.5em;
+    color: #444;
+    /* Slightly lighter than h1 for hierarchy */
+}
+
+.blog-content p {
+    margin-bottom: 1em;
+    color: #555;
+    /* Lighter text color for paragraphs */
+}
+
+.blog-content ul,
+.blog-content ol {
+    margin-left: 20px;
+    margin-bottom: 1em;
+}
+
+.blog-content code {
+    background-color: #f4f4f4;
+    /* Subtle background for code snippets */
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    /* Slightly smaller font size for code */
+    color: #d63384;
+    /* Code text color for contrast */
+}
+
+/* Blog Container Styles */
+.blog-container {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    /* White background to match blog-content */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for separation */
+    max-width: 1000px;
+    /* Restrict width for consistency */
+    background-color: #e8e8e8;
+}
+
+/* Copy Button Styles */
+.copy-button-container {
+    display: auto;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.copy-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    /* Consistent font size */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    /* Smooth transition */
+}
+
+.copy-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Enhanced shadow on hover */
+}
