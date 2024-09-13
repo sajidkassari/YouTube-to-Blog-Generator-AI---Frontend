@@ -3,7 +3,7 @@ from flask_cors import CORS
 import google.generativeai as genai
 from youtube_transcript_api import YouTubeTranscriptApi
 import re
-import requests
+# import requests
 import os
 from dotenv import load_dotenv
 import sqlite3
@@ -96,38 +96,38 @@ def extract_video_id(url):
     return video_id_match.group(1) if video_id_match else None
 
 # Function to fetch subtitles from YouTube--------- better locally
-# def fetch_youtube_subtitles(video_id):
-#     try:
-#         transcript = YouTubeTranscriptApi.get_transcript(video_id)
-#         subtitles = " ".join([entry['text'] for entry in transcript])
-#         return subtitles
-#     except Exception as e:
-#         print(f"Error fetching subtitles: {e}")
-#         return None
-# def fetch_gen_subtitles(video_id):
-#     try:
-#         transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
-#         transcript = transcript_list.find_generated_transcript(['en'])
-#         subtitles = " ".join([entry['text'] for entry in transcript])
-#         return subtitles
-#     except Exception as e:
-#         print(f"Error fetching subtitles: {e}")
-#         return None
-
-#------------better for deployment
 def fetch_youtube_subtitles(video_id):
     try:
-        netlify_function_url = 'https://ytblogai.netlify.app/.netlify/functions/getSubtitles'
-        response = requests.post(netlify_function_url, json={'video_id': video_id})
-
-        if response.status_code == 200:
-            return response.json().get('subtitles')
-        else:
-            print(f"Error from Netlify function: {response.json().get('error')}")
-            return None
+        transcript = YouTubeTranscriptApi.get_transcript(video_id)
+        subtitles = " ".join([entry['text'] for entry in transcript])
+        return subtitles
     except Exception as e:
-        print(f"Error fetching subtitles via Netlify function: {e}")
+        print(f"Error fetching subtitles: {e}")
         return None
+def fetch_gen_subtitles(video_id):
+    try:
+        transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
+        transcript = transcript_list.find_generated_transcript(['en'])
+        subtitles = " ".join([entry['text'] for entry in transcript])
+        return subtitles
+    except Exception as e:
+        print(f"Error fetching subtitles: {e}")
+        return None
+
+#------------better for deployment
+# def fetch_youtube_subtitles(video_id):
+#     try:
+#         netlify_function_url = 'https://ytblogai.netlify.app/.netlify/functions/getSubtitles'
+#         response = requests.post(netlify_function_url, json={'video_id': video_id})
+
+#         if response.status_code == 200:
+#             return response.json().get('subtitles')
+#         else:
+#             print(f"Error from Netlify function: {response.json().get('error')}")
+#             return None
+#     except Exception as e:
+#         print(f"Error fetching subtitles via Netlify function: {e}")
+#         return None
 
 # Set generation configuration for Gemini API
 generation_config = {
@@ -164,10 +164,10 @@ def generate_blog():
     # Fetch subtitles for the given video ID
     transcription = fetch_youtube_subtitles(video_id)
     if not transcription:
+        #return jsonify({'error': 'Could not fetch subtitles'}), 500
+        transcription = fetch_gen_subtitles(video_id)
+    elif not transcription:
         return jsonify({'error': 'Could not fetch subtitles'}), 500
-    #     transcription = fetch_gen_subtitles(video_id)
-    # elif not transcription:
-    #     return jsonify({'error': 'Could not fetch subtitles'}), 500
 
     # Extra prompt to make the blog more SEO-friendly
     seo_prompt = (
