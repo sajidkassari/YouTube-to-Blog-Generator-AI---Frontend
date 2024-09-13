@@ -164,9 +164,10 @@ def generate_blog():
     # Fetch subtitles for the given video ID
     transcription = fetch_youtube_subtitles(video_id)
     if not transcription:
-        transcription = fetch_gen_subtitles(video_id)
-    elif not transcription:
         return jsonify({'error': 'Could not fetch subtitles'}), 500
+    #     transcription = fetch_gen_subtitles(video_id)
+    # elif not transcription:
+    #     return jsonify({'error': 'Could not fetch subtitles'}), 500
 
     # Extra prompt to make the blog more SEO-friendly
     seo_prompt = (
