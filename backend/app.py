@@ -11,7 +11,7 @@ from datetime import datetime
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["https://blogaiback.vercel.app"]}})
+CORS(app, resources={r"/*": {"origins": ["https://youtubeblogai.vercel.app"]}})
 
 
 # Database setup
