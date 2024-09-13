@@ -92,7 +92,7 @@ genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 # Helper function to extract video ID from YouTube URL
 def extract_video_id(url):
-    video_id_match = re.search(r"(?:v=|\/)([0-9A-Za-z_-]{11}).*", url)
+    video_id_match = re.search(r"(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|user\/[\w]+\/)|youtu\.be\/|youtube\.com\/shorts\/)([0-9A-Za-z_-]{11})", url)
     return video_id_match.group(1) if video_id_match else None
 
 # Function to fetch subtitles from YouTube--------- better locally
