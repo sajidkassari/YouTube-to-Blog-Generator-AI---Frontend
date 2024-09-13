@@ -18,7 +18,7 @@ CORS(app)
 def get_db_connection():
     db_path = os.path.abspath('ip_tracking.db')
     print(f"Database path: {db_path}")  # Add this to check the database location
-    conn = sqlite3.connect('ip_tracking.db')
+    conn = sqlite3.connect('/tmp/ip_tracking.db')
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
 
