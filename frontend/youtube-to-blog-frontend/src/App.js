@@ -12,7 +12,7 @@ function App() {
   const [error, setError] = useState("");
   const [showScroll, setShowScroll] = useState(false);
   const [remaining, setRemaining] = useState(5);  // Start with 5 conversions
-  const backendUrl = "https://ytblogai.vercel.app/generate_blog"
+  const backendUrl = "https://blogaiback.vercel.app/generate_blog"
 
   const handleGenerateBlog = async () => {
     setLoading(true);
